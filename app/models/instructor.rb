@@ -1,5 +1,6 @@
 class Instructor
   @@all = []
+  attr_reader :first_name
 
   def initialize(first_name)
     @first_name = first_name
@@ -22,6 +23,7 @@ class Instructor
     test = boating_tests.find do |boating_test|
       boating_test.student == student && boating_test.test_name == test_name
     end
+    #binding.pry
     if test == nil
       test = BoatingTest.new(student, test_name, test_status="passed", self)
     else
@@ -29,5 +31,19 @@ class Instructor
     end
     test
   end
+
+  def fail_student(student, test_name)
+    test = boating_tests.find do |boating_test|
+      boating_test.student == student && boating_test.test_name == test_name
+    end
+    if test == nil
+      test = BoatingTest.new(student, test_name, test_status="failed", self)
+    else
+      test.test_status = "failed"
+    end
+    test
+  end
+
+
 
 end
