@@ -34,6 +34,4 @@ class Student
         passed_test.count
     end  
 
-    
-
 end
