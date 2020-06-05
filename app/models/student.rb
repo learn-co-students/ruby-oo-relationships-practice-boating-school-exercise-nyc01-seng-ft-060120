@@ -1,6 +1,6 @@
 class Student
 
-    attr_accessor :first_name
+    attr_reader :first_name
 
     @@all = []
 
@@ -15,7 +15,7 @@ class Student
     end 
 
     def add_boating_test(test_name,test_status,instructor)
-        Boating_Test.new(self,test_name,test_status,instructor) 
+        BoatingTest.new(self,test_name,test_status,instructor) 
     end
     
     def self.find_student(name)
@@ -27,7 +27,7 @@ class Student
     def grade_percentage 
         passed_test = []
         Student.all.select do |student_test| 
-            if student_test.test_status == true 
+            if student_test.test_status == "passed" 
                 passed_test << student_test 
             end  
         end
