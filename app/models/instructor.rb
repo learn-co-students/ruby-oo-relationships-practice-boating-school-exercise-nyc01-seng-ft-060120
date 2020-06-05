@@ -23,4 +23,14 @@ class Instructor
         end
     end
 
+    def fail_student(student, boating_test_name)
+        testtofail = BoatingTest.all.select do |boating_test|
+            if testtofail
+                testtofail(status) = "failed"
+            else
+                BoatingTest.new(student, boating_test_name, "failed", self)
+            end
+        end
+    end
+
 end
