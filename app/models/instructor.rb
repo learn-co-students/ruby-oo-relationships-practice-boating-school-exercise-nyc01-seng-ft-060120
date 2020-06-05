@@ -1,5 +1,3 @@
-require 'pry'
-
 class Instructor
 
     attr_reader :name
