@@ -1,8 +1,8 @@
 class Instructor
   attr_reader :name
   @@all = []
-  def initialize(hash)
-    @name = hash[:name]
+  def initialize(name)
+    @name = name
     @@all << self
   end
 
