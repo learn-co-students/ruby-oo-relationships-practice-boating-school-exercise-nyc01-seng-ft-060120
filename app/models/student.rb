@@ -13,8 +13,8 @@ class Student
         @@all
     end
 
-    def add_boating_test(test_name, status, instructor)
-        BoatingTest.new(self, test_name, status, instructor)
+    def add_boating_test(test_name, test_status, instructor)
+        BoatingTest.new(self,test_name, test_status, instructor)
       end
 
     def self.find_student(first_name) 
@@ -22,7 +22,7 @@ class Student
     end
 
     def student_grad_percentage
-        passed_tests = [].to_f
+        passed_tests = BoatingTest.all.find.all {|test| test.test_status == "pass"}.count.to_f
         total_tests = [].to_f
         percent_passed = (passed_tests/total_tests) * 100
     end
@@ -30,14 +30,10 @@ class Student
 
 end
 
-tests = [
-    [Joe Object, test_name, status, instructor]
-    [Farah Object, test_name, status, instructor]
-    [Sam Object, test_name, status, instructor]
-]
 
-joe = Student.new("Joe")
-farah = Student.new("Farah")
-sam = Student.new("Sam")
+
+spongebob = Student.new("Spongebob")
+patrick= Student.new("Patrick")
+
 
 binding.pry
